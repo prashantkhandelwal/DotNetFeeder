@@ -58,29 +58,10 @@ public class Feeder
                 return SyndicationFeed.Load(XmlReader.Create(stream));
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            //Trace.Warn("Feed Collector", "Couldn't download: " + url, ex);
             return new SyndicationFeed();
         }
-    }
-
-    private IEnumerable<SyndicationItem> GetData()
-    {
-        using (XmlReader reader = XmlReader.Create(_masterFile))
-        {
-            //var count = int.Parse(config.AppSettings["postsPerPage"]);
-            var items = SyndicationFeed.Load(reader).Items;//.Skip((_page - 1) * count).Take(count);
-            return items.Select(item => { CleanItem(item); return item; });
-            //return SyndicationFeed.Load(reader).Items;
-        }
-    }
-
-    private static void CleanItem(SyndicationItem item)
-    {
-        string summary = item.Summary != null ? item.Summary.Text : ((TextSyndicationContent)item.Content).Text;
-        summary = Regex.Replace(summary, "<[^>]*>", ""); // Strips out HTML
-        item.Summary = new TextSyndicationContent(string.Join("", summary.Take(300)) + "...");
     }
 
     public List<FeedData> ReadData()

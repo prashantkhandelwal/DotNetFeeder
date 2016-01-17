@@ -1,0 +1,28 @@
+[
+  {
+    "webpage": "http://midnightprogrammer.net",
+    "feedurl": "http://feeds.feedburner.com/MidnightProgrammer",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://hanselman.com/blog",
+    "feedurl": "http://feeds.feedburner.com/scotthanselman",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://www.mikesdotnetting.com",
+    "feedurl": "http://www.mikesdotnetting.com/feed",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://weblogs.asp.net",
+    "feedurl": "http://feeds.feedburner.com/jongalloway",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://asp.net",
+    "feedurl": "http://www.asp.net/rss/spotlight",
+    "category": "programming"
+
+  }
+]

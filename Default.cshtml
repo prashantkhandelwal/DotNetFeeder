@@ -1,0 +1,34 @@
+﻿@using System.Threading.Tasks;
+@using System.Web.Hosting;
+@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = ".NET Feeder";
+}
+
+@{
+    Feeder f = new Feeder();
+    Task task = Task.Run(() => f.DownloadFeeds());
+
+    if (!System.IO.File.Exists(HostingEnvironment.MapPath("~/App_Data/master.xml")))
+    {
+        task.Wait();
+    }
+    else
+    {
+        List<FeedData> feeds = f.ReadData();
+
+        foreach (var feed in feeds)
+        {
+            <div id="heading">
+                <h2>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <a href="@feed.link">@feed.title</a>
+                </h2>
+                <span class="glyphicon glyphicon-calendar"><span id="prop"><strong>@feed.publishdate</strong></span></span>
+            </div>
+            <div id="summary">
+                <p>@Html.Raw(feed.description)</p>
+            </div>
+        }
+    }
+}

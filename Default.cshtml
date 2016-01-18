@@ -15,8 +15,13 @@
     }
     else
     {
-        List<FeedData> feeds = f.ReadData();
-
+        List<FeedData> feeds = WebCache.Get("feeds");
+        if (feeds == null)
+        {
+            feeds = f.ReadData();
+            WebCache.Set("feeds", feeds, 10, false);
+        }
+       
         foreach (var feed in feeds)
         {
             <div id="heading">

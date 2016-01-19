@@ -21,18 +21,22 @@
             feeds = f.ReadData();
             WebCache.Set("feeds", feeds, 10, false);
         }
-       
+
         foreach (var feed in feeds)
         {
-            <div id="heading">
-                <h2>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <a href="@feed.link">@feed.title</a>
-                </h2>
-                <span class="glyphicon glyphicon-calendar"><span id="prop"><strong>@feed.publishdate</strong></span></span>
-            </div>
-            <div id="summary">
-                <p>@Html.Raw(feed.description)</p>
+            <div id="feed" class="@(feed.publishdate.DayOfYear == DateTime.Now.DayOfYear && feed.publishdate.Month == feed.publishdate.Month  ? "newFeed" : "")">
+                <div id="heading">
+                    <h2>
+                        <a href="@feed.link">@feed.title</a>
+                        <span id="bookmark" class="glyphicon glyphicon-star-empty" title="Click To Bookmark"></span>
+                    </h2>
+                </div>
+                <div class="feedinfo">
+                    <span class="glyphicon glyphicon-calendar"><span id="prop"><strong>@feed.publishdate.ToString("yyyy-MM-dd")</strong></span></span>
+                </div>
+                <div id="summary">
+                    <p>@Html.Raw(feed.description)</p>
+                </div>
             </div>
         }
     }

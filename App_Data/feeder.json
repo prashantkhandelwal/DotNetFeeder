@@ -23,6 +23,10 @@
     "webpage": "http://asp.net",
     "feedurl": "http://www.asp.net/rss/spotlight",
     "category": "programming"
-
+  },
+  {
+    "webpage": "http://blogs.msdn.com/b/webdev/",
+    "feedurl": "http://blogs.msdn.com/b/webdev/rss.aspx",
+    "category": "programming"
   }
 ]

@@ -13,15 +13,37 @@ body {
     padding: 0;
 }
 
-#prop{
+#feed {
+    margin-top: 25px;
+}
+
+#prop {
     font-family: sans-serif;
+    position: absolute;
     margin-left: 5px;
 }
 
 #summary p {
-    margin: 8px 0px 10px;
+    margin: 30px 0px 10px;
 }
 
-footer{
+#shortcuts .glyphicon {
+    top: 5px;
+}
+
+ #bookmark {
+   cursor: pointer;
+}
+
+.feedinfo {
+    position: absolute;
+    margin-top: -8px;
+}
+
+.newFeed {
+    background-color: antiquewhite;
+}
+
+footer {
     text-align: center;
 }

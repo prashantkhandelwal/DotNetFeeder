@@ -66,7 +66,7 @@ public class Feeder
 
     public List<FeedData> ReadData()
     {
-        //Load teh document
+        //Load the document
         XmlDocument doc = new XmlDocument();
         XmlNamespaceManager namespaces = new XmlNamespaceManager(doc.NameTable);
         namespaces.AddNamespace("ns", "urn:hl7-org:v3");
@@ -102,7 +102,7 @@ public class Feeder
             }
 
             fdata = new FeedData();
-            fdata.publishdate = Convert.ToDateTime(pubdate).ToString("yyyy-MM-dd HH:mm"); ;
+            fdata.publishdate = Convert.ToDateTime(pubdate);
             fdata.link = link;
             fdata.title = title;
             if (Regex.Replace(description, "<[^>]*>", "").Length > 300)

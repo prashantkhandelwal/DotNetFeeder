@@ -44,6 +44,19 @@ body {
     background-color: antiquewhite;
 }
 
+.logo{
+    background-repeat:no-repeat;
+    width: 24px;
+    height: 24px;
+}
+
+.apptitle{
+    vertical-align: central;
+    position: absolute;
+    margin-left: 32px;
+    margin-top: -18px;
+}
+
 footer {
     text-align: center;
 }

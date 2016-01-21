@@ -13,26 +13,28 @@ body {
     padding: 0;
 }
 
-#feed {
+.feed, .newFeed {
     margin-top: 25px;
 }
 
-#prop {
+.prop {
     font-family: sans-serif;
     position: absolute;
     margin-left: 5px;
+    width: 80px;
 }
 
-#summary p {
+.heading {
+    vertical-align: bottom;
+}
+
+.summary p {
     margin: 10px 0px 10px;
 }
 
-#shortcuts .glyphicon {
-    top: 5px;
-}
-
- #bookmark {
-   cursor: pointer;
+.bookmark {
+    cursor: pointer;
+    vertical-align: bottom;
 }
 
 .feedinfo {
@@ -43,13 +45,13 @@ body {
     background-color: antiquewhite;
 }
 
-.logo{
-    background-repeat:no-repeat;
+.logo {
+    background-repeat: no-repeat;
     width: 24px;
     height: 24px;
 }
 
-.apptitle{
+.apptitle {
     vertical-align: central;
     position: absolute;
     margin-left: 32px;

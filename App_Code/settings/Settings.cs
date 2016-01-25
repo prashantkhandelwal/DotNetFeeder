@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-public class Settings
+﻿public class GeneralSettings
 {
-    public int pageSize { get; set; }
+    public int pageSize { get; set; } 
     public int cacheTime { get; set; }
+}
 
-    public Settings()
-    {
-        
-    }
+public class StorageSettings
+{
+    public StorageType storageType { get; set; }
+    public string mongoDbURL { get; set; }
+    public string dbUser { get; set; }
+    public string dbPassword { get; set; }
 }

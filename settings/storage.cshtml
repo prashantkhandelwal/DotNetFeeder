@@ -1,44 +1,63 @@
-﻿@{
+﻿@using System;
+@{
     Layout = "~/settings/_SettingsLayout.cshtml";
     Page.Title = ".NET Feeder - Storage Settings";
 }
 
+@{
+    StorageSettings _settings = null;
+    if (Request.HttpMethod == "POST")
+    {
+        _settings = new StorageSettings();
+        _settings.mongoDbURL = Request.Form["mongourl"];
+        _settings.dbUser = Request.Form["dbuser"];
+        _settings.dbPassword = Request.Form["dbpassword"];
+        _settings.storageType = StorageType.Mongolab;
+        DataStore.SaveSettings(_settings);
+    }
+    else
+    {
+        _settings = DataStore.ReadSettings<StorageSettings>("StorageSettings") == null ? new StorageSettings(): DataStore.ReadSettings<StorageSettings>
+    ("StorageSettings");
+    }
+}
+
 <div class="col-xs-1 col-sm-11">
-    <div class="form-horizontal">
+    <form action="~/settings/storage.cshtml" method="post" class="form-horizontal">
         <div class="form-group">
             <label for="storage" class="control-label col-xs-2">Storage Provider</label>
             <div class="col-xs-2">
-                <select class="form-control" id="storage">
+                <select class="form-control" name="storage" id="storage">
                     <option>Mongolab</option>
                     <option>Azure Storage</option>
                 </select>
             </div>
-        </div> 
+        </div>
 
         <div id="mongolab">
             <div class="form-group">
                 <label for="mongourl" class="control-label col-xs-2">Mongolab DB URL</label>
                 <div class="col-xs-7">
-                    <input type="text" class="form-control" id="mongourl" placeholder="XX000000.mongolab.com:00000/dotnetfeeder">
+                    <input type="text" class="form-control" name="mongourl" id="mongourl" value="@_settings.mongoDbURL" placeholder="XX000000.mongolab.com:00000/dotnetfeeder">
                 </div>
             </div>
             <div class="form-group">
                 <label for="dbuser" class="control-label col-xs-2">User Name</label>
                 <div class="col-xs-7">
-                    <input type="text" class="form-control" id="dbuser" placeholder="User name for Mongolab DB">
+                    <input type="text" class="form-control" name="dbuser" id="dbuser" value="@_settings.dbUser" placeholder="User name for Mongolab DB">
                 </div>
             </div>
             <div class="form-group">
                 <label for="dbpassword" class="control-label col-xs-2">Password</label>
                 <div class="col-xs-7">
-                    <input type="text" class="form-control" id="dbpassword" placeholder="Password for Mongolab DB">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-offset-2 col-xs-10">
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <input type="password" class="form-control" name="dbpassword" id="dbpassword" value="@_settings.dbPassword" placeholder="Password for Mongolab DB">
                 </div>
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
 </div>

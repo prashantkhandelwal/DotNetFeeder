@@ -4,3 +4,18 @@
 }
 
 <h2>Bookmarks</h2>
+
+@{ 
+        if (Request.HttpMethod == "POST") {
+        string input;
+        using (var reader = new StreamReader(Request.InputStream))
+        {
+            input = reader.ReadToEnd();
+        }
+
+        if (input.Length > 0)
+        {
+
+        }
+    }
+}

@@ -13,10 +13,6 @@ body {
     padding: 0;
 }
 
-.feed, .newFeed {
-    margin-top: 25px;
-}
-
 .prop {
     font-family: sans-serif;
     position: absolute;

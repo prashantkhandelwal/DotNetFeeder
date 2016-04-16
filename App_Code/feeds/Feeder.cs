@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Xml;
+using FluentScheduler;
 
 public class Feeds
 {
@@ -17,14 +18,23 @@ public class Feeds
     public string category { get; set; }
 }
 
-public class Feeder
+public class Feeder: IJob, IRegisteredObject
 {
     private static string _masterFile = HostingEnvironment.MapPath("~/App_Data/master.xml");
     private static string _feedFile = HostingEnvironment.MapPath("~/App_Data/feed.xml");
     FeedData fdata;// = new FeedData();
     List<FeedData> feedData = new List<FeedData>();
 
-    public async Task DownloadFeeds()
+    //For Jobs
+    private readonly object _lock = new object();
+    private bool _shuttingDown;
+    
+    public Feeder()
+    {
+        HostingEnvironment.RegisterObject(this);
+    }
+
+    private async Task DownloadFeeds()
     {
         var rss = new SyndicationFeed("Programmer Feeds", "Personal Feeds", null);
         string jsonFeed = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/feeder.json"));
@@ -118,4 +128,33 @@ public class Feeder
         return feedData;
 
     }
+
+    #region Scheduled Job
+
+    public void Execute()
+    {
+        lock (_lock)
+        {
+            if (_shuttingDown)
+                return;
+
+            Task task = Task.Run(() => DownloadFeeds());
+            if (!System.IO.File.Exists(HostingEnvironment.MapPath("~/App_Data/master.xml")))
+            {
+                task.Wait();
+            }
+        }
+    }
+
+    public void Stop(bool immediate)
+    {
+        lock (_lock)
+        {
+            _shuttingDown = true;
+        }
+
+        HostingEnvironment.UnregisterObject(this);
+    }
+
+    #endregion
 }

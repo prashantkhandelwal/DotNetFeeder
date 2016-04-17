@@ -5,9 +5,13 @@
 
 <h2>Bookmarks</h2>
 
-@{ 
-        if (Request.HttpMethod == "POST") {
+@{
+    IStorageProvider _storage = Storage.GetInstance;
+
+    if (Request.HttpMethod == "POST")
+    {
         string input;
+        string[] _separator = new string[] { "||" };
         using (var reader = new StreamReader(Request.InputStream))
         {
             input = reader.ReadToEnd();
@@ -15,7 +19,28 @@
 
         if (input.Length > 0)
         {
-
+            _storage.SaveBookmark(new Bookmarks() { URL = input.Split(_separator, StringSplitOptions.RemoveEmptyEntries)[1], Title = input.Split(_separator, StringSplitOptions.RemoveEmptyEntries)[0] });
         }
+    }
+    else
+    {
+        IEnumerable<Bookmarks> _bookmarks = _storage.ListBookmarks().Result;
+        int count = 1;
+        <div class="panel panel-default">
+            <div class="panel-heading">Bookmarks</div>
+            <table class="table">
+                <tbody>
+                    @foreach (var bookmark in _bookmarks)
+                    {
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td><a href="@bookmark.URL">@bookmark.Title</a></td>
+                            <td>Delete</td>
+                        </tr>
+                        count++;
+                    }
+                </tbody>
+            </table>
+        </div>
     }
 }

@@ -4,6 +4,6 @@ public class FeedJob: Registry
 {
     public FeedJob()
     {
-        Schedule<Feeder>().ToRunEvery(30).Minutes();
+        Schedule<Feeder>().ToRunNow().AndEvery(30).Minutes();
     }
 }

@@ -20,34 +20,37 @@ public class RavenDBProvider : IStorageProvider
         _store.Initialize();
     }
 
-    public bool DeleteBookmark(string id)
+    public async Task<bool> DeleteBookmark(string id)
     {
         bool isDeleted = false;
-        using (var session = _store.OpenSession())
+        return await Task.Run(() =>
         {
-            Bookmarks _bookmark = session.Load<Bookmarks>(id);
-            if (_bookmark != null)
+            using (var session = _store.OpenSession())
             {
-                session.Delete(_bookmark);
-                session.SaveChanges();
-                isDeleted = true;
+                Bookmarks _bookmark = session.Load<Bookmarks>(id);
+                if (_bookmark != null)
+                {
+                    session.Delete(_bookmark);
+                    session.SaveChanges();
+                    isDeleted = true;
+                }
             }
-        }
-        return isDeleted;
+            return isDeleted;
+        });
     }
 
-    public async Task<IEnumerable<Bookmarks>> ListBookmarks()
+    public Task<IEnumerable<Bookmarks>> ListBookmarks()
     {
         IRavenQueryable<Bookmarks> _bookmarksList = null;
         try
         {
-            return await Task.Run(() =>
+            return Task.Run(() =>
             {
                 using (var session = _store.OpenSession())
-            {
-                _bookmarksList = from bookmarks in session.Query<Bookmarks>() select bookmarks;
-            }
-            return _bookmarksList as IEnumerable<Bookmarks>;
+                {
+                    _bookmarksList = from bookmarks in session.Query<Bookmarks>() select bookmarks;
+                }
+                return _bookmarksList as IEnumerable<Bookmarks>;
             });
         }
         catch (Exception)

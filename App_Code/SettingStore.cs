@@ -2,7 +2,7 @@
 using System.IO;
 using System.Web.Hosting;
 
-public class DataStore
+public sealed class SettingsStore
 {
     public static bool SaveSettings<T>(T setting) where T :class
     {

@@ -28,7 +28,7 @@ body {
     margin: 10px 0px 10px;
 }
 
-.bookmark {
+.bookmark, .normalLink {
     cursor: pointer;
     vertical-align: bottom;
 }

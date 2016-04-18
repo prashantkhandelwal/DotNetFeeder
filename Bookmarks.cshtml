@@ -8,18 +8,24 @@
 @{
     IStorageProvider _storage = Storage.GetInstance;
 
+    string input;
     if (Request.HttpMethod == "POST")
     {
-        string input;
         string[] _separator = new string[] { "||" };
         using (var reader = new StreamReader(Request.InputStream))
         {
             input = reader.ReadToEnd();
         }
-
         if (input.Length > 0)
         {
-            _storage.SaveBookmark(new Bookmarks() { URL = input.Split(_separator, StringSplitOptions.RemoveEmptyEntries)[1], Title = input.Split(_separator, StringSplitOptions.RemoveEmptyEntries)[0] });
+            if (input.Contains("id:"))
+            {
+                _storage.DeleteBookmark(input.Split(':')[1]);
+            }
+            else
+            {
+                _storage.SaveBookmark(new Bookmarks() { URL = input.Split(_separator, StringSplitOptions.RemoveEmptyEntries)[1], Title = input.Split(_separator, StringSplitOptions.RemoveEmptyEntries)[0] });
+            }
         }
     }
     else
@@ -31,11 +37,11 @@
             <table class="table">
                 <tbody>
                     @foreach (var bookmark in _bookmarks)
-                    {
+                {
                         <tr>
                             <th scope="row">@count</th>
                             <td><a href="@bookmark.URL">@bookmark.Title</a></td>
-                            <td>Delete</td>
+                            <td id="deleteBookmark"><span class="glyphicon glyphicon-remove normalLink" title="Delete Bookmark" data-bookmark="id:@bookmark.Id"></span></td>
                         </tr>
                         count++;
                     }

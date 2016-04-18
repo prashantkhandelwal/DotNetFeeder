@@ -48,11 +48,15 @@ local.properties
 x64/
 build/
 [Oo]bj/
+CompiledIndexCache
+App_Data/Data
+App_Data/*.xml
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+*.zip
 *_i.c
 *_p.c
 *.ilk

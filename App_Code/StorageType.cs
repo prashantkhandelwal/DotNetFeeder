@@ -1,5 +1,6 @@
 ﻿public enum StorageType
 {
     Mongolab = 1,
-    Azure = 2
+    RavenDB = 2,
+    Azure = 3
 }

@@ -3,6 +3,7 @@
 
     var elem_feed_heading = $('.heading');
     var elem_bookmark = $('.bookmark');
+    var elem_del_bookmark = $('#deleteBookmark span');
     var elem_starIcon = $('.bookmark span');
     var elem_storage = $('#storage');
     var storage = $('#storage option:selected').text();
@@ -12,6 +13,9 @@
         switch (storageName) {
             case 'Mongolab':
                 elem_mongolab.css('display', 'inline');
+                break;
+            case 'RavenDB':
+                elem_mongolab.css('display', 'none');
                 break;
             default:
                 elem_mongolab.css('display', 'none');
@@ -30,6 +34,18 @@
         });
     }
 
+    function deleteBookmark(id) {
+        $.ajax({
+            type: "POST",
+            url: "/bookmarks",
+            data: id,
+            datatype: "html",
+            success: function (data) {
+                toastr.success('Bookmark Deleted');
+            }
+        });
+    }
+
     elem_feed_heading.mouseover(function (e) {
         $(this)[0].childNodes[1].childNodes[3].style.display = 'inline';
     });
@@ -39,6 +55,10 @@
 
     elem_starIcon.click(function (e) {
         bookmarkFeed($(this).attr('data-feed'));
+    });
+
+    elem_del_bookmark.click(function (e) {
+        deleteBookmark($(this).attr('data-bookmark'));
     });
 
     elem_bookmark.css('display', 'none');

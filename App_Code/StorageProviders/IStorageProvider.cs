@@ -8,5 +8,5 @@ public interface IStorageProvider
 {
     Task<IEnumerable<Bookmarks>> ListBookmarks();
     Task<bool> SaveBookmark(Bookmarks bookmark);
-    bool DeleteBookmark(string id);
+    Task<bool> DeleteBookmark(string id);
 }

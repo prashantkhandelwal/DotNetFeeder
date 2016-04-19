@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 /// <summary>
 /// Enables the support for MongoDB.

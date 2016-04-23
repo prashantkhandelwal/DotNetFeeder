@@ -78,5 +78,10 @@
     "webpage": "http://stephenwalther.com/",
     "feedurl": "http://feeds.feedburner.com/stephenwalther",
     "category": "programming"
+  },
+  {
+    "webpage": "http://www.tugberkugurlu.com/",
+    "feedurl": "http://www.tugberkugurlu.com/Feeds/Rss",
+    "category":  "programming"
   }
 ]

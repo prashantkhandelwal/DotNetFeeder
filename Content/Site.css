@@ -24,6 +24,10 @@ body {
     vertical-align: bottom;
 }
 
+.heading > h2 > a{
+    text-decoration:none;
+}
+
 .summary p {
     margin: 10px 0px 10px;
 }
@@ -31,6 +35,10 @@ body {
 .bookmark, .normalLink {
     cursor: pointer;
     vertical-align: bottom;
+}
+
+.bookmark > span{
+    margin-top: -2px;
 }
 
 .feedinfo {
@@ -45,6 +53,11 @@ body {
     background-repeat: no-repeat;
     width: 24px;
     height: 24px;
+}
+
+#settingsPanel{
+    padding-top: 10px;
+    padding-left: 16px;
 }
 
 .apptitle {

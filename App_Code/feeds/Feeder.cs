@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Xml;
 using FluentScheduler;
+using Microsoft.AspNet.SignalR;
 
 public class Feeds
 {
@@ -22,8 +23,11 @@ public class Feeder: IJob, IRegisteredObject
 {
     private static string _masterFile = HostingEnvironment.MapPath("~/App_Data/master.xml");
     private static string _feedFile = HostingEnvironment.MapPath("~/App_Data/feed.xml");
-    FeedData fdata;// = new FeedData();
-    List<FeedData> feedData = new List<FeedData>();
+
+    private IHubContext _hubContext;
+
+    private FeedData fdata;// = new FeedData();
+    private List<FeedData> feedData = new List<FeedData>();
 
     //For Jobs
     private readonly object _lock = new object();
@@ -31,6 +35,7 @@ public class Feeder: IJob, IRegisteredObject
     
     public Feeder()
     {
+        _hubContext = GlobalHost.ConnectionManager.GetHubContext<FeedNotificationHub>();
         HostingEnvironment.RegisterObject(this);
     }
 
@@ -48,7 +53,10 @@ public class Feeder: IJob, IRegisteredObject
         }
 
         using (XmlWriter writer = XmlWriter.Create(_masterFile))
+        {
             rss.SaveAsRss20(writer);
+            _hubContext.Clients.All.feedJobNotification("Feeds Refresh Completed!");
+        }
 
         using (XmlWriter writer = XmlWriter.Create(_feedFile))
         {
@@ -67,7 +75,7 @@ public class Feeder: IJob, IRegisteredObject
                 return SyndicationFeed.Load(XmlReader.Create(stream));
             }
         }
-        catch (Exception)
+        catch (Exception x)
         {
             return new SyndicationFeed();
         }
@@ -133,6 +141,8 @@ public class Feeder: IJob, IRegisteredObject
 
     public void Execute()
     {
+        _hubContext.Clients.All.feedJobNotification("Refreshing Feeds!");
+
         lock (_lock)
         {
             if (_shuttingDown)

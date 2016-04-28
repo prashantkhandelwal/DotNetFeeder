@@ -22,12 +22,12 @@
   {
     "webpage": "http://asp.net",
     "feedurl": "http://www.asp.net/rss/spotlight",
-    "category": "programming"
+    "category": "asp.net"
   },
   {
     "webpage": "http://blogs.msdn.com/b/webdev/",
     "feedurl": "http://blogs.msdn.com/b/webdev/rss.aspx",
-    "category": "programming"
+    "category": "asp.net"
   },
   {
     "webpage": "https://weblogs.asp.net/scottgu/",
@@ -82,6 +82,21 @@
   {
     "webpage": "http://www.tugberkugurlu.com/",
     "feedurl": "http://www.tugberkugurlu.com/Feeds/Rss",
-    "category":  "programming"
+    "category": "programming"
+  },
+  {
+    "webpage": "http://jameschambers.com/",
+    "feedurl": "http://jameschambers.com/atom.xml",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://www.tattoocoder.com/",
+    "feedurl": "http://feeds.feedburner.com/tattoocoder",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://blogs.msdn.microsoft.com/dotnet",
+    "feedurl": "https://blogs.msdn.microsoft.com/dotnet/feed/",
+    "category": ".net"
   }
 ]

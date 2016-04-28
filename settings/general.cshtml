@@ -12,6 +12,7 @@
             _settings.pageSize = Convert.ToInt32(Request.Form["pagesize"]);
             _settings.refreshTime = Convert.ToInt32(Request.Form["refreshtime"]);
             SettingsStore.SaveSettings(_settings);
+            JobManager.RemoveJob("Feeder");
             JobManager.Initialize(new FeedJob(_settings));
         }
         else

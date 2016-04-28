@@ -12,7 +12,7 @@ using System.Xml;
 using FluentScheduler;
 using Microsoft.AspNet.SignalR;
 
-public class Feeder: IJob, IRegisteredObject
+public class Feeder : IJob, IRegisteredObject
 {
     private static string _masterFile = HostingEnvironment.MapPath("~/App_Data/master.xml");
     private static string _feedFile = HostingEnvironment.MapPath("~/App_Data/feed.xml");
@@ -25,7 +25,7 @@ public class Feeder: IJob, IRegisteredObject
     //For Jobs
     private readonly object _lock = new object();
     private bool _shuttingDown;
-    
+
     public Feeder()
     {
         _hubContext = GlobalHost.ConnectionManager.GetHubContext<FeedNotificationHub>();
@@ -38,7 +38,6 @@ public class Feeder: IJob, IRegisteredObject
         string jsonFeed = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/feeder.json"));
         var feeds = JsonConvert.DeserializeObject<List<Feeds>>(jsonFeed);
 
-
         foreach (var f in feeds)
         {
             SyndicationFeed feed = await DownloadFeed(f.feedurl);
@@ -48,7 +47,6 @@ public class Feeder: IJob, IRegisteredObject
         using (XmlWriter writer = XmlWriter.Create(_masterFile))
         {
             rss.SaveAsRss20(writer);
-            _hubContext.Clients.All.feedJobNotification("Feeds Refresh Completed!");
         }
 
         using (XmlWriter writer = XmlWriter.Create(_feedFile))
@@ -92,11 +90,11 @@ public class Feeder: IJob, IRegisteredObject
             string link = string.Empty;
             string pubdate = string.Empty;
 
-            if(node["link"] != null)
+            if (node["link"] != null)
             {
                 link = node["link"]?.InnerText;
             }
-            else if(node["a10:link"] != null)
+            else if (node["a10:link"] != null)
             {
                 link = node["a10:link"].Attributes[0].InnerText;
                 //link = node["a10:link"].InnerText;
@@ -123,7 +121,7 @@ public class Feeder: IJob, IRegisteredObject
             {
                 fdata.description = Regex.Replace(description, "<[^>]*>", "");
             }
-                feedData.Add(fdata);
+            feedData.Add(fdata);
         }
 
         return feedData;
@@ -134,14 +132,19 @@ public class Feeder: IJob, IRegisteredObject
 
     public void Execute()
     {
-        _hubContext.Clients.All.feedJobNotification("Refreshing Feeds!");
-
         lock (_lock)
         {
+            _hubContext.Clients.All.feedJobNotification("Refreshing Feeds!");
+
             if (_shuttingDown)
                 return;
 
-            Task task = Task.Run(() => DownloadFeeds());
+            Task task = Task.Run(async () =>
+            {
+                await DownloadFeeds();
+                _hubContext.Clients.All.feedJobNotification("Feeds Refresh Completed!");
+            });
+
             if (!System.IO.File.Exists(HostingEnvironment.MapPath("~/App_Data/master.xml")))
             {
                 task.Wait();

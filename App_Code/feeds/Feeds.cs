@@ -1,11 +1,6 @@
-﻿using System;
-
-public class FeedData
+﻿public class Feeds
 {
-    public string title { get; set; }
-    public string link { get; set; }
-    public string author { get; set; }
-    public DateTime publishdate { get; set; }
-    public string description { get; set; }
+    public string webpage { get; set; }
+    public string feedurl { get; set; }
+    public string category { get; set; }
 }
-

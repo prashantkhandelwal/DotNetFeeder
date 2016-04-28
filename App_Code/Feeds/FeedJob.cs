@@ -2,8 +2,8 @@
 
 public class FeedJob: Registry
 {
-    public FeedJob()
+    public FeedJob(GeneralSettings _settings)
     {
-        Schedule<Feeder>().ToRunNow().AndEvery(4).Hours();
+        Schedule<Feeder>().ToRunNow().AndEvery(_settings.refreshTime).Minutes();
     }
 }

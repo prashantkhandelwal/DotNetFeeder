@@ -12,13 +12,6 @@ using System.Xml;
 using FluentScheduler;
 using Microsoft.AspNet.SignalR;
 
-public class Feeds
-{
-    public string webpage { get; set; }
-    public string feedurl { get; set; }
-    public string category { get; set; }
-}
-
 public class Feeder: IJob, IRegisteredObject
 {
     private static string _masterFile = HostingEnvironment.MapPath("~/App_Data/master.xml");
@@ -75,7 +68,7 @@ public class Feeder: IJob, IRegisteredObject
                 return SyndicationFeed.Load(XmlReader.Create(stream));
             }
         }
-        catch (Exception x)
+        catch (Exception)
         {
             return new SyndicationFeed();
         }

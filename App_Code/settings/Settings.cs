@@ -1,7 +1,7 @@
 ﻿public class GeneralSettings
 {
     public int pageSize { get; set; } 
-    public int cacheTime { get; set; }
+    public int refreshTime { get; set; }
 }
 
 public class StorageSettings

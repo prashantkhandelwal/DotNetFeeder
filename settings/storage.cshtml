@@ -1,5 +1,4 @@
-﻿@using System;
-@{
+﻿@{
     Layout = "~/settings/_SettingsLayout.cshtml";
     Page.Title = ".NET Feeder - Storage Settings";
 }
@@ -16,7 +15,7 @@
             _settings.dbPassword = Request.Form["dbpassword"];
             _settings.storageType = StorageType.Mongolab;
         }
-        else if(Request.Form["storage"] == "RavenDB")
+        else if (Request.Form["storage"] == "RavenDB")
         {
             _settings.storageType = StorageType.RavenDB;
         }
@@ -24,13 +23,13 @@
     }
     else
     {
-        _settings = SettingsStore.ReadSettings<StorageSettings>("StorageSettings") == null ? new StorageSettings(): SettingsStore.ReadSettings<StorageSettings>("StorageSettings");
+        _settings = SettingsStore.ReadSettings<StorageSettings>("StorageSettings") == null ? new StorageSettings() : SettingsStore.ReadSettings<StorageSettings>("StorageSettings");
     }
 }
 
 
 <div class="col-xs-1 col-sm-11">
-    <form action="~/settings/storage.cshtml" method="post" class="form-horizontal">
+    <form action="~/settings/storage" method="post" class="form-horizontal">
         <div class="form-group">
             <label for="storage" class="control-label col-xs-2">Storage Provider</label>
             <div class="col-xs-2">
@@ -70,8 +69,8 @@
     </form>
 </div>
 <script>
-(function(){
-    var dbProvider = '@_settings.storageType';
-    $('#storage').val(dbProvider);
-}())
+    (function () {
+        var dbProvider = '@_settings.storageType';
+        $('#storage').val(dbProvider);
+    }())
 </script>

@@ -1,0 +1,6 @@
+﻿@using FluentScheduler;
+
+@{
+    GeneralSettings _settings = SettingsStore.ReadSettings<GeneralSettings>("GeneralSettings");
+    JobManager.Initialize(new FeedJob(_settings));
+}

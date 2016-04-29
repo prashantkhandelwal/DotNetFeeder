@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Page.Title</title>
+    <link href="../Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../Scripts/toastr.min.js"></script>
+    <link href="../Content/toastr.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <link href="../Content/Site.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img class="logo" src="../Images/feed.svg" alt=".NET Feeder" />
+                    <span class="apptitle">.NET Feeder</span>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><span class="fa fa-home" aria-hidden="true"></span></a></li>
+                    <li><a href="/bookmarks"><span class="fa fa-bookmark" aria-hidden="true"></span></a></li>
+                    <li><a href="/settings/general"><span class="fa fa-cog" aria-hidden="true"></span></a></li>
+                    <li><a href="/about"><span class="fa fa-question-circle" aria-hidden="true"></span></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div id="body">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - .NET Feeder</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../Scripts/common.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/notifications.js"></script>
+</body>
+</html>

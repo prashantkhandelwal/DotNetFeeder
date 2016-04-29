@@ -40,17 +40,21 @@ local.properties
 *.suo
 *.user
 *.sln.docstates
+*.publishproj
 
 # Build results
 
+[Bb]in/
 [Dd]ebug/
 [Rr]elease/
 x64/
 build/
 [Oo]bj/
 CompiledIndexCache
-App_Data/Data
-App_Data/*.xml
+Data
+feed.xml
+master.xml
+
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

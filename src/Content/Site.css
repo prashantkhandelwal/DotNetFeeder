@@ -1,0 +1,76 @@
+﻿html {
+    /*background-color: #e2e2e2;*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    margin-top: 80px;
+    padding: 0;
+}
+
+.prop {
+    font-family: sans-serif;
+    position: absolute;
+    margin-left: 5px;
+    width: 80px;
+}
+
+.heading {
+    vertical-align: bottom;
+}
+
+.heading > h2 > a{
+    text-decoration:none;
+}
+
+.summary p {
+    margin: 10px 0px 10px;
+}
+
+.bookmark, .normalLink {
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+.bookmark > span{
+    margin-top: -2px;
+}
+
+.feedinfo {
+    margin-top: -8px;
+}
+
+.newFeed {
+    background-color: antiquewhite;
+}
+
+.logo {
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+}
+
+#settingsPanel{
+    padding-top: 10px;
+    padding-left: 16px;
+}
+
+.apptitle {
+    vertical-align: central;
+    position: absolute;
+    margin-left: 32px;
+    margin-top: -18px;
+}
+
+.form-horizontal{
+    padding-left: 135px;
+}
+
+footer {
+    text-align: center;
+}

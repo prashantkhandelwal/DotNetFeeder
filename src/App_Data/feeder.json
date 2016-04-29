@@ -1,0 +1,102 @@
+[
+  {
+    "webpage": "http://midnightprogrammer.net",
+    "feedurl": "http://feeds.feedburner.com/MidnightProgrammer",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://hanselman.com/blog",
+    "feedurl": "http://feeds.feedburner.com/scotthanselman",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://www.mikesdotnetting.com",
+    "feedurl": "http://www.mikesdotnetting.com/feed",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://weblogs.asp.net/jongalloway",
+    "feedurl": "http://feeds.feedburner.com/jongalloway",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://asp.net",
+    "feedurl": "http://www.asp.net/rss/spotlight",
+    "category": "asp.net"
+  },
+  {
+    "webpage": "http://blogs.msdn.com/b/webdev/",
+    "feedurl": "http://blogs.msdn.com/b/webdev/rss.aspx",
+    "category": "asp.net"
+  },
+  {
+    "webpage": "https://weblogs.asp.net/scottgu/",
+    "feedurl": "https://weblogs.asp.net/scottgu/rss?containerid=13",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://weblogs.asp.net/dwahlin",
+    "feedurl": "https://weblogs.asp.net/dwahlin/rss?containerid=13",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://www.filipekberg.se/",
+    "feedurl": "http://feeds.feedburner.com/fekberg",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://damienbod.com/",
+    "feedurl": "http://damienbod.com/feed/",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://www.davepaquette.com/",
+    "feedurl": "http://www.davepaquette.com/atom.xml",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://gunnarpeipman.com/",
+    "feedurl": "http://feeds.feedburner.com/gunnarpeipman",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://odetocode.com/",
+    "feedurl": "http://feeds.feedburner.com/OdeToCode",
+    "category": "programming"
+  },
+  {
+    "webpage": "https://lostechies.com/",
+    "feedurl": "https://feeds.feedburner.com/LosTechies",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://blog.cwa.me.uk/",
+    "feedurl": "http://feeds.feedburner.com/ReflectivePerspective",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://stephenwalther.com/",
+    "feedurl": "http://feeds.feedburner.com/stephenwalther",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://www.tugberkugurlu.com/",
+    "feedurl": "http://www.tugberkugurlu.com/Feeds/Rss",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://jameschambers.com/",
+    "feedurl": "http://jameschambers.com/atom.xml",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://www.tattoocoder.com/",
+    "feedurl": "http://feeds.feedburner.com/tattoocoder",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://blogs.msdn.microsoft.com/dotnet",
+    "feedurl": "https://blogs.msdn.microsoft.com/dotnet/feed/",
+    "category": ".net"
+  }
+]

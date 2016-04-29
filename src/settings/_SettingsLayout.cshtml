@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = ".NET Feeder - Settings";
+}
+
+<h2>Settings</h2>
+<hr />
+    <div id="settingsPanel" class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-6 col-sm-1">
+            <div class="row" style="min-width:150px;">
+                <ul id="settings" class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="@(Request.RawUrl.Contains("general") ? "active": "")"><a href="/settings/general">General</a></li>
+                    <li role="presentation" class="@(Request.RawUrl.Contains("storage") ? "active": "")"><a href="/settings/storage">Storage</a></li>
+                    <li role="presentation" class="@(Request.RawUrl.Contains("feeds") ? "active": "")"><a href="/settings/feeds">Feeds</a></li>
+                </ul>
+            </div>
+        </div>
+        @RenderBody()
+    </div>

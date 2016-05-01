@@ -59,6 +59,10 @@
 
     elem_del_bookmark.click(function (e) {
         deleteBookmark($(this).attr('data-bookmark'));
+        $(this).closest('tr').remove();
+        $('.table > tbody >tr >th').each(function (e) {
+            $(this).context.textContent = Number(e) + 1;
+        });
     });
 
     elem_bookmark.css('display', 'none');

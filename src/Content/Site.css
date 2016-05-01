@@ -41,6 +41,10 @@ body {
     margin-top: -2px;
 }
 
+.table tr:hover {
+    background-color:antiquewhite;
+}
+
 .feedinfo {
     margin-top: -8px;
 }

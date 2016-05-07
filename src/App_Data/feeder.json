@@ -98,5 +98,20 @@
     "webpage": "http://blogs.msdn.microsoft.com/dotnet",
     "feedurl": "https://blogs.msdn.microsoft.com/dotnet/feed/",
     "category": ".net"
+  },
+  {
+    "webpage": "https://blog.mariusschulz.com",
+    "feedurl": "http://feeds.feedburner.com/mariusschulz",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://dontcodetired.com/blog/",
+    "feedurl": "http://dontcodetired.com/blog/syndication.axd",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://michaelcrump.net/",
+    "feedurl": "http://michaelcrump.net/feed",
+    "category": "programming"
   }
 ]

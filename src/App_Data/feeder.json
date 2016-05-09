@@ -113,5 +113,10 @@
     "webpage": "http://michaelcrump.net/",
     "feedurl": "http://michaelcrump.net/feed",
     "category": "programming"
+  },
+  {
+    "webpage": "http://johnpapa.net/",
+    "feedurl": "http://feeds.feedburner.com/johnpapa",
+    "category": "programming"
   }
 ]

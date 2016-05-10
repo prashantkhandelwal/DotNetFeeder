@@ -118,5 +118,10 @@
     "webpage": "http://johnpapa.net/",
     "feedurl": "http://feeds.feedburner.com/johnpapa",
     "category": "programming"
+  },
+  {
+    "webpage": "http://programmingwithmosh.com/",
+    "feedurl": "http://programmingwithmosh.com/feed/",
+    "category": "programming"
   }
 ]

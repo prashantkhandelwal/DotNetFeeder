@@ -59,6 +59,10 @@ body {
     height: 24px;
 }
 
+.feedGrouping{
+    margin-left: -226px;
+}
+
 #settingsPanel{
     padding-top: 10px;
     padding-left: 16px;

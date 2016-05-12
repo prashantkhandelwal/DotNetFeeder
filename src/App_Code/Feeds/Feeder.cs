@@ -35,7 +35,7 @@ public class Feeder : IJob, IRegisteredObject
     private async Task DownloadFeeds()
     {
         var rss = new SyndicationFeed("Programmer Feeds", "Personal Feeds", null);
-        string jsonFeed = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/feeder.json"));
+        string jsonFeed = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath(Constants.DATA_FEED));
         var feeds = JsonConvert.DeserializeObject<List<Feeds>>(jsonFeed);
 
         foreach (var f in feeds)

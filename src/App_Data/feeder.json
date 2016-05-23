@@ -128,5 +128,15 @@
     "webpage": "https://ayende.com/blog/",
     "feedurl": "http://feeds.feedburner.com/AyendeRahien",
     "category": "programming"
+  },
+  {
+    "webpage": "http://weblog.west-wind.com/",
+    "feedurl": "http://feeds.feedburner.com/rickstrahl",
+    "category": "programming"
+  },
+  {
+    "webpage": "http://josephwoodward.co.uk/",
+    "feedurl": "http://josephwoodward.co.uk/rss",
+    "category": "programming"
   }
 ]

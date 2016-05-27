@@ -138,5 +138,10 @@
     "webpage": "http://josephwoodward.co.uk/",
     "feedurl": "http://josephwoodward.co.uk/rss",
     "category": "programming"
+  },
+  {
+    "webpage": "http://weblogs.asp.net/imranbaloch",
+    "feedurl": "http://weblogs.asp.net/imranbaloch/rss?containerid=12",
+    "category": "programming"
   }
 ]

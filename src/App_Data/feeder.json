@@ -143,5 +143,10 @@
     "webpage": "http://weblogs.asp.net/imranbaloch",
     "feedurl": "http://weblogs.asp.net/imranbaloch/rss?containerid=12",
     "category": "programming"
+  },
+  {
+    "webpage": "https://jessedotnet.com/",
+    "feedurl": "https://jessedotnet.com/feed/",
+    "category": "programming"
   }
 ]

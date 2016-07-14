@@ -148,5 +148,10 @@
     "webpage": "https://jessedotnet.com/",
     "feedurl": "https://jessedotnet.com/feed/",
     "category": "programming"
+  },
+  {
+    "webpage": "https://blogs.msdn.microsoft.com/mvpawardprogram/",
+    "feedurl": "https://blogs.msdn.microsoft.com/mvpawardprogram/feed/",
+    "category": "programming"
   }
 ]

@@ -18,7 +18,7 @@ public class MongoDBProvider : IStorageProvider
 
     public MongoDBProvider()
     {
-        _client = new MongoClient(_settings.mongoDbURL);
+        _client = new MongoClient("mongodb://" + _settings.dbUser + ":" + _settings.dbPassword + "@" + _settings.mongoDbURL);
         _database = _client.GetDatabase(_settings.mongoDbURL.Substring(_settings.mongoDbURL.LastIndexOf('/') + 1, _settings.mongoDbURL.Length - _settings.mongoDbURL.LastIndexOf('/') - 1));
         _bookmarkCollection = _database.GetCollection<BsonDocument>("bookmarks");
         if (_bookmarkCollection == null)

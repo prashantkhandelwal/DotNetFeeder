@@ -153,5 +153,10 @@
     "webpage": "https://blogs.msdn.microsoft.com/mvpawardprogram/",
     "feedurl": "https://blogs.msdn.microsoft.com/mvpawardprogram/feed/",
     "category": "programming"
+  },
+  {
+    "webpage": "http://blog.thoughtram.io/",
+    "feedurl": "http://feeds.feedburner.com/thoughtram",
+    "category": "programming"
   }
 ]
